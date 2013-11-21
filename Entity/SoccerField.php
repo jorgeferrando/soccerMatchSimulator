@@ -7,14 +7,18 @@
 
 namespace soccerMatchSimulator\Entity;
 
+use soccerMatchSimulator\Entities\Goal;
+
 class SoccerField {
     protected $field;
-    protected $goals;
+    protected $leftGoal;
+    protected $rightGoal;
 
-    public function __construct($with,$length,$goals = array())
+    public function __construct($with,$length,Goal $rightGoal,Goal $leftGoal)
     {
         $this->initializeField($with,$length);
-        $this->goals = $goals;
+        $this->setLeftGoal($leftGoal);
+        $this->setRightGoal($rightGoal);
     }
 
     protected function initializeField($with =  5,$length = 10)
@@ -42,19 +46,35 @@ class SoccerField {
     }
 
     /**
-     * @param mixed $goal
+     * @param Goal $goal
      */
-    public function setGoals($goals)
+    public function setLeftGoal($goal)
     {
-        $this->goals = $goals;
+        $this->leftGoal = $goal;
+    }
+
+    /**
+     * @param Goal $goal
+     */
+    public function setRightGoal($goal)
+    {
+        $this->rigthGoal = $goal;
     }
 
     /**
      * @return mixed
      */
-    public function getGoals()
+    public function getLeftGoal()
     {
-        return $this->goals;
+        return $this->leftGoal;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRightGoal()
+    {
+        return $this->rightGoal;
     }
 
 }
