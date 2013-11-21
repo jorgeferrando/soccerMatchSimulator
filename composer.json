@@ -1,0 +1,14 @@
+{
+    "name": "jorge/soccerMatchSimulator",
+    "description": "Soccer Match Simulator",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "jorge",
+            "email": "jorgeparent@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.28"
+    }
+}
