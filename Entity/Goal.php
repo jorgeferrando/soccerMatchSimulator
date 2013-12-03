@@ -6,7 +6,7 @@
  * Time: 18:27
  */
 
-namespace soccerMatchSimulator\Entities;
+namespace soccerMatchSimulator\Entity;
 
 
 class Goal {
@@ -15,17 +15,24 @@ class Goal {
 
     function __construct($width,$height, $goalkeeper = null)
     {
+        $this->possibilities = array();
         $this->goalkeeper = $goalkeeper;
-        if($goalkeeper !== null)
+
+        for($i = 0;$i<$width;$i++)
         {
-            for($i = 0;$i<$width;$width++)
+            for($j = 0;$j<$height;$j++)
             {
-                for($j = 0;$j<$height;$j++)
-                {
-                    $this->setPossibility($goalkeeper,$i,$j);
-                }
+                $this->setPossibility($goalkeeper,$i,$j);
             }
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPossibilities()
+    {
+        return $this->possibilities;
     }
 
     /**
@@ -37,6 +44,6 @@ class Goal {
      */
     private function setPossibility($goalkeeper,$i,$j)
     {
-        $this->possibilities[$i][$j] = ($goalkeeper->defense/100) * 0.05 ; //TODO: here goes a formula to do this.
+        $this->possibilities[$i][$j] = ($goalkeeper->getDefense()/100) * 0.5 ; //TODO: here goes a formula to do this.
     }
 } 

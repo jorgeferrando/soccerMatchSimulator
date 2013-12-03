@@ -6,22 +6,22 @@
  * Time: 18:12
  */
 
-namespace soccerMatchSimulator\Entities;
+namespace soccerMatchSimulator\Entity;
 
 
 class Player {
 
-    protected $shot;
-    protected $shortPass;
-    protected $longPass;
-    protected $defense;
-    protected $speed;
+    protected $shot = 0;
+    protected $shortPass = 0;
+    protected $longPass = 0;
+    protected $defense = 0;
+    protected $speed = 0;
 
     function __construct($attributes)
     {
         foreach($attributes as $key => $value)
         {
-            if (isset($this->$key))
+            if (isset($this->{$key}))
             {
                 $this->$key = $value;
             }

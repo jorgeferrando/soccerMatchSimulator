@@ -7,7 +7,8 @@
 
 namespace soccerMatchSimulator\Entity;
 
-use soccerMatchSimulator\Entities\Goal;
+use soccerMatchSimulator\Entity\Goal;
+use soccerMatchSimulator\Entity\Player;
 
 class SoccerField {
     protected $field;
